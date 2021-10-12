@@ -4,4 +4,3 @@ export enum ECloudService {
 }
 
 export type TCloudService = keyof typeof ECloudService;
-

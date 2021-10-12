@@ -39,7 +39,7 @@
 
     "lib": ["es2017", "dom"],
     "types": ["node"],
-    "typeRoots": ["./src/types/", "node_modules/@types"]
+    "typeRoots": ["src/types/", "node_modules/@types"]
   },
   "include": ["src/**/*.ts", "src/types"],
   "exclude": ["node_modules/**"],

@@ -43,6 +43,7 @@ export interface ICourse_lw extends ITractable {
 export interface ICourse extends ICourse_lw {
     readonly name:string;
     readonly catalog:string;
+    
     readonly collections:ICollection[];
     readonly creator:ICreator;
 }
