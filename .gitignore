@@ -2,6 +2,8 @@
 # *.js
 *supersecret*
 
+build/
+
 # Logs
 logs
 *.log
