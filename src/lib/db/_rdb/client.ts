@@ -118,6 +118,7 @@ var client:IDatabaseDevice;
 export function init_rethink(credentials:IDatabaseCredentials):IDatabaseDevice {
     /** @TODO */
     // client = new Rethink(credentials);
+    console.log(credentials);
     return client;
 }
 

@@ -2,8 +2,9 @@
 /* eslint-disable functional/prefer-type-literal */
 
 import { IUser, IUser_lw } from '../accounts';
-import { ELanguage, ITractable } from '../db/';
+import { ITractable } from '../db/';
 
+import { ELanguage } from './languages';
 import { IVocab, IVocab_lw } from './vocab';
 
 /**

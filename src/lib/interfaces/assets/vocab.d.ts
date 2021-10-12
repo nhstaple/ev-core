@@ -2,7 +2,9 @@
 /* eslint-disable functional/prefer-readonly-type */
 /* eslint-disable functional/prefer-type-literal */
 
-import { ELanguage, ITractable } from '../db';
+import { ITractable } from '../db';
+
+import { ELanguage } from './languages';
 
 /**
  * An enum for parts of speech
