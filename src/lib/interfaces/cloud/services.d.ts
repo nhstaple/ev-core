@@ -1,6 +1,6 @@
 
 /**
- * An enum for the supported cloud devices
+ * An enum for the supported cloud services
  * @member aws {0}
  * @TODO add more!
  */
