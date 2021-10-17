@@ -2,6 +2,8 @@
 /* eslint-disable functional/no-method-signature */
 /* eslint-disable functional/prefer-type-literal */
 
+import * as r from 'rethinkdb';
+
 import { ICollection, ICollection_lw, IVocab, IVocab_lw } from '../assets/';
 
 import { TDatabaseService } from './services';
@@ -26,12 +28,12 @@ import { ITractable } from './tractable';
 
     /** rethink */
     readonly host?:string;
-    readonly port?:string;
-    readonly db?:string;
+    readonly port?:number;
+    readonly db:string;
     readonly user?:string;
     readonly password?:string;
     readonly timeout?:number;
-    readonly ssl?:string|null;
+    readonly ssl?:number|r.ConnectionOptions;
 }
 
 /**
@@ -61,14 +63,14 @@ export interface IDatabaseDevice {
      * @async
      * @method connect()
      * @description connect to a database
-     * @param dbName {string} the name of the database to connect to
+     * @param db {IDatabaseCredentials} the name of the database to connect to
      * @param force {boolean} a flag to force a connection if one exists
      * @param callback {function} a standard callback function
      * 
      * @returns true on a successful connection, false if a connection already exists, throw an error otherwise
      */
     connect(
-        dbName:string,
+        db:IDatabaseCredentials,
         force:boolean,
         callback: (err:Error, data:Record<string, unknown>) => boolean
     ):Promise<boolean>;
@@ -147,7 +149,8 @@ export interface IDatabaseDevice {
      */
     insert(
         table:string,
-        row:Record<string, unknown>,
+        // eslint-disable-next-line @typescript-eslint/ban-types
+        row:Object,
         callback: (err:Error, data:Record<string, unknown>) => boolean
     ):Promise<boolean>;
     

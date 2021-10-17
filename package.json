@@ -42,7 +42,9 @@
     "node": ">=10"
   },
   "dependencies": {
-    "@bitauth/libauth": "^1.17.1"
+    "@bitauth/libauth": "^1.17.1",
+    "@types/rethinkdb": "^2.3.17",
+    "rethinkdb": "^2.4.2"
   },
   "devDependencies": {
     "@ava/typescript": "^1.1.1",
