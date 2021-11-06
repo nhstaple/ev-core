@@ -11,9 +11,9 @@ import { ITractable } from '../db';
  * @member she  {2} she/her
  */
 export enum EPronoun {
-    they = 0,
-    he = 1,
-    she = 2
+    neutral = 0,
+    masculine = 1,
+    feminine = 2
 }
 
 export type TPronoun = keyof typeof EPronoun;

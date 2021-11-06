@@ -71,3 +71,4 @@ export interface IVocab extends IVocab_lw {
     unitType?:string;
     wordType?:string;
 }
+
