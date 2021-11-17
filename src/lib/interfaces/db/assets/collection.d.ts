@@ -1,10 +1,10 @@
 /* eslint-disable functional/prefer-readonly-type */
 /* eslint-disable functional/prefer-type-literal */
 
-import { IUser, IUser_lw } from '../accounts';
-import { ITractable } from '../db/';
+import { IUser, IUser_lw } from '../../accounts';
 
 import { ELanguage } from './languages';
+import { ITractable } from './tractable';
 import { IVocab, IVocab_lw } from './vocab';
 
 /**
