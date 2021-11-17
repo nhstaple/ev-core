@@ -2,8 +2,8 @@
 /* eslint-disable functional/prefer-type-literal */
 
 import { ICreator, ICreator_lw } from '../accounts/creator';
-import { ICollection, ICollection_lw } from '../assets/collection';
-import { ITractable } from '../db';
+import { ITractable } from '../db/assets';
+import { ICollection, ICollection_lw } from '../db/assets/collection';
 
 /**
  * An enum for course statuses

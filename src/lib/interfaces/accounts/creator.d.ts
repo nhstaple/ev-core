@@ -1,7 +1,7 @@
 /* eslint-disable functional/prefer-readonly-type */
 /* eslint-disable functional/prefer-type-literal */
 
-import { ICollection, ICollection_lw } from '../assets/collection';
+import { ICollection, ICollection_lw } from '../db/assets/collection';
 
 import { IUser, IUser_lw } from './user';
 

@@ -4,10 +4,9 @@
 
 import * as r from 'rethinkdb';
 
-import { ICollection, ICollection_lw, IVocab, IVocab_lw } from '../assets/';
-
+import { ICollection, ICollection_lw, IVocab, IVocab_lw } from './assets';
+import { ITractable } from './assets/tractable';
 import { TDatabaseService } from './services';
-import { ITractable } from './tractable';
 
 /**
  * An interface for managing credentials for databases
@@ -33,7 +32,7 @@ import { ITractable } from './tractable';
     readonly user?:string;
     readonly password?:string;
     readonly timeout?:number;
-    readonly ssl?:number|r.ConnectionOptions;
+    readonly ssl?:number | r.ConnectionOptions;
 }
 
 /**
@@ -116,7 +115,7 @@ export interface IDatabaseDevice {
      */
     getVocab(
         table:string,
-        uuid:ITractable[]|ITractable,
+        uuid:ITractable[] | ITractable,
         callback: (err:Error, data:Record<string, unknown>) => boolean
     ):Promise<IVocab[]>;
 
@@ -132,7 +131,7 @@ export interface IDatabaseDevice {
      */
     getCollection(
         table:string,
-        uuid:ITractable[]|ITractable,
+        uuid:ITractable[] | ITractable,
         callback: (err:Error, data:Record<string, unknown>) => boolean
     ):Promise<ICollection[]>;
 
@@ -183,7 +182,7 @@ export interface IDatabaseDevice {
      */
     deleteItem(
         table:string,
-        uuid:ITractable[]|ITractable
+        uuid:ITractable[] | ITractable
     ):Promise<boolean>;
 
     /** lightweight methods */
@@ -197,7 +196,7 @@ export interface IDatabaseDevice {
      */
     getVocab_lw(
         table:string,
-        uuids:ITractable[]|ITractable,
+        uuids:ITractable[] | ITractable,
         callback: (err:Error, data:Record<string, unknown>) => boolean
     ):Promise<IVocab_lw[]>;
 
@@ -211,7 +210,7 @@ export interface IDatabaseDevice {
      */
     getCollection_lw(
         table:string,
-        uuids:ITractable[]|ITractable,
+        uuids:ITractable[] | ITractable,
         callback: (err:Error, data:Record<string, unknown>) => boolean
     ):Promise<ICollection_lw[]>;
 

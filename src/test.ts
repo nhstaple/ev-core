@@ -4,7 +4,7 @@ import {
     IDatabaseCredentials, IDatabaseDevice,
     ITractable,
     IVocab
-} from './lib/interfaces';
+} from './types';
 
 async function test() {
 

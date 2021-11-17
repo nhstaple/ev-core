@@ -2,7 +2,7 @@
 /* eslint-disable functional/prefer-readonly-type */
 /* eslint-disable functional/prefer-type-literal */
 
-import { ITractable } from '../db';
+import { ITractable } from '..';
 
 import { ELanguage } from './languages';
 

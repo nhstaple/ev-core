@@ -3,10 +3,10 @@
 
 import * as r from 'rethinkdb';
 
-import { ICollection, ICollection_lw } from '../../interfaces/assets/collection';
-import { IVocab, IVocab_lw } from '../../interfaces/assets/vocab';
+import { ITractable } from '../../interfaces/db'
+import { ICollection, ICollection_lw } from '../../interfaces/db/assets/collection';
+import { IVocab, IVocab_lw } from '../../interfaces/db/assets/vocab';
 import { IDatabaseCredentials, IDatabaseDevice } from '../../interfaces/db/device';
-import { ITractable } from '../../interfaces/db/tractable'
 
 class Rethink implements IDatabaseDevice {
     /** PUBLIC MEMBERS */
