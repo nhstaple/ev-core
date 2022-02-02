@@ -48,15 +48,15 @@ export interface IEmail {
  * @member student {0} most basic permissions
  * @member TA {1} elevated permissions beneath an instructor
  * @member instructor {2} elevated permissions beneath a creator
- * @member creator {3} second most powerful account
- * @member admin {4} the most powerful account
+ * @member creator {4} second most powerful account
+ * @member admin {8} the most powerful account
  */
 export enum EAccountRank {
     student = 0,
     TA = 1,
     instructor = 2,
-    creator = 3,
-    admin = 4
+    creator = 4,
+    admin = 8
 }
 
 export type TAccountRank = keyof typeof EAccountRank;

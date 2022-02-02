@@ -1,7 +1,7 @@
 /* eslint-disable functional/prefer-readonly-type */
 /* eslint-disable functional/prefer-type-literal */
 
-import { ICreator, ICreator_lw } from '../accounts/creator';
+import { IInstructor, IInstructor_lw } from '../accounts/instructor';
 import { ITractable } from '../db/assets';
 import { ICollection, ICollection_lw } from '../db/assets/collection';
 
@@ -10,13 +10,13 @@ import { ICollection, ICollection_lw } from '../db/assets/collection';
  * @member template {0} to instantiate future courses
  * @member inactive {1} for a course not in session
  * @member active {2} for a course in session
- * @member archived {3} for previous courses
+ * @member archived {4} for previous courses
  */
 export enum ECourseStatus {
     template = 0,
     inactive = 1,
     active = 2,
-    archived = 3
+    archived = 4
 }
 
 export type TCourseStatus = keyof typeof ECourseStatus;
@@ -29,7 +29,7 @@ export type TCourseStatus = keyof typeof ECourseStatus;
  */
 export interface ICourse_lw extends ITractable {
     readonly collections:ICollection_lw[];
-    readonly creator:ICreator_lw;
+    readonly instructor:IInstructor_lw;
 }
 
 /**
@@ -45,5 +45,5 @@ export interface ICourse extends ICourse_lw {
     readonly catalog:string;
     
     readonly collections:ICollection[];
-    readonly creator:ICreator;
+    readonly instructor:IInstructor;
 }
