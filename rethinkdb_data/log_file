@@ -1,0 +1,14 @@
+2022-02-16T21:40:55.794547000 0.106131s notice: Recursively removing directory /Users/nhstaple/ev/soft_reboot/ev-core/rethinkdb_data/tmp
+2022-02-16T21:40:55.797493000 0.109082s notice: Initializing directory /Users/nhstaple/ev/soft_reboot/ev-core/rethinkdb_data
+2022-02-16T21:40:55.797664000 0.109247s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/Users/nhstaple/ev/soft_reboot/ev-core/rethinkdb_data' did not already exist or is empty.)
+2022-02-16T21:40:55.798253000 0.109837s notice: Running rethinkdb 2.4.1 (CLANG 12.0.5 (clang-1205.0.22.9))...
+2022-02-16T21:40:55.809643000 0.121228s notice: Running on Darwin 20.3.0 x86_64
+2022-02-16T21:40:55.809713000 0.121297s notice: Loading data from directory /Users/nhstaple/ev/soft_reboot/ev-core/rethinkdb_data
+2022-02-16T21:40:55.875355000 0.186942s info: Automatically using cache size of 214 MB
+2022-02-16T21:40:55.882818000 0.194405s notice: Listening for intracluster connections on port 29015
+2022-02-16T21:40:55.885507000 0.197094s notice: Listening for client driver connections on port 28015
+2022-02-16T21:40:55.885562000 0.197149s notice: Listening for administrative HTTP connections on port 8080
+2022-02-16T21:40:55.885566000 0.197153s notice: Listening on cluster addresses: 127.0.0.1, 192.168.1.141, ::1, 2600:8800:18a:5401:188c:28cb:d579:6f57, 2600:8800:18a:5401:4d1b:dace:48d2:f4d8, 2600:8800:18a:5401:d0eb:35cf:ccbf:3cf4, 2600:8800:18a:5401:d8a1:29d5:94d3:b197, fe80::1%1, fe80::18db:5cc5:dde0:706c%4, fe80::3c6c:9bff:fe6f:a7aa%9, fe80::3c6c:9bff:fe6f:a7aa%10, fe80::4664:a8b5:745f:b394%13, fe80::cf63:25a1:5c59:3af6%12, fe80::edb5:4c71:914e:46eb%14, fe80::f5fb:217b:f88c:721f%11
+2022-02-16T21:40:55.885572000 0.197159s notice: Listening on driver addresses: 127.0.0.1, 192.168.1.141, ::1, 2600:8800:18a:5401:188c:28cb:d579:6f57, 2600:8800:18a:5401:4d1b:dace:48d2:f4d8, 2600:8800:18a:5401:d0eb:35cf:ccbf:3cf4, 2600:8800:18a:5401:d8a1:29d5:94d3:b197, fe80::1%1, fe80::18db:5cc5:dde0:706c%4, fe80::3c6c:9bff:fe6f:a7aa%9, fe80::3c6c:9bff:fe6f:a7aa%10, fe80::4664:a8b5:745f:b394%13, fe80::cf63:25a1:5c59:3af6%12, fe80::edb5:4c71:914e:46eb%14, fe80::f5fb:217b:f88c:721f%11
+2022-02-16T21:40:55.885576000 0.197163s notice: Listening on http addresses: 127.0.0.1, 192.168.1.141, ::1, 2600:8800:18a:5401:188c:28cb:d579:6f57, 2600:8800:18a:5401:4d1b:dace:48d2:f4d8, 2600:8800:18a:5401:d0eb:35cf:ccbf:3cf4, 2600:8800:18a:5401:d8a1:29d5:94d3:b197, fe80::1%1, fe80::18db:5cc5:dde0:706c%4, fe80::3c6c:9bff:fe6f:a7aa%9, fe80::3c6c:9bff:fe6f:a7aa%10, fe80::4664:a8b5:745f:b394%13, fe80::cf63:25a1:5c59:3af6%12, fe80::edb5:4c71:914e:46eb%14, fe80::f5fb:217b:f88c:721f%11
+2022-02-16T21:40:55.885580000 0.197166s notice: Server ready, "nick_mbp_cj2" 4e5c93ea-34ac-43d1-9f3c-057a13d1d202

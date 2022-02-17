@@ -3,12 +3,12 @@
 
 import * as r from 'rethinkdb';
 
-import { ITractable } from '../../interfaces/db'
-import { ICollection, ICollection_lw } from '../../interfaces/db/assets/collection';
-import { IVocab, IVocab_lw } from '../../interfaces/db/assets/vocab';
-import { IDatabaseCredentials, IDatabaseDevice } from '../../interfaces/db/device';
+import { ITractable } from '../../../types/db'
+import { ICollection, ICollection_lw } from '../../../types/db/assets/collection';
+import { IVocab, IVocab_lw } from '../../../types/db/assets/vocab';
+import { IDatabaseCredentials, IDatabaseDevice } from '../../../types/db/device';
 
-class Rethink implements IDatabaseDevice {
+export class Rethink implements IDatabaseDevice {
     /** PUBLIC MEMBERS */
     // eslint-disable-next-line functional/prefer-readonly-type
     credentials!:IDatabaseCredentials;
@@ -28,7 +28,7 @@ class Rethink implements IDatabaseDevice {
     }
 
     // eslint-disable-next-line functional/no-return-void
-    private _closeConnection(wait:boolean):void {
+    public closeConnection(wait:boolean):void {
         if(this._conn != null) {
             this._conn.close({noreplyWait: wait}, (err) => {
                 if(err) {
@@ -61,7 +61,7 @@ class Rethink implements IDatabaseDevice {
                     console.log(credentials);
                 }
                 // close the current connection
-                this._closeConnection(true);
+                this.closeConnection(true);
             }
 
             // define the connection options
@@ -87,6 +87,66 @@ class Rethink implements IDatabaseDevice {
             return false;
         }
         return true;
+    }
+
+    // eslint-disable-next-line functional/prefer-readonly-type
+    async getDbNames(): Promise<string[]> {
+        const databases = await r.dbList().run(
+            this._conn as r.Connection
+        ).then(function(results) {
+            return results;
+        })
+
+        return databases;
+    }
+
+    async createDB(dbName:string):Promise<boolean> {
+        try {
+            const databases = await this.getDbNames();
+            if(!databases.includes(dbName)) {
+                r.dbCreate(dbName).run(this._conn as r.Connection, (err) => {
+                    if(err) { 
+                        console.log(err);
+                    } else { 
+                        // console.log(result);
+                        console.log(`created DB "${dbName}"`);
+                    }
+                })
+            } else {
+                console.log(`database "${dbName}" exists!`);
+                return false;
+            }
+            return true;
+        }
+        catch (err) {
+            console.log('There was an error on db initialization')
+            console.log(err)
+            return false;
+        }
+    }
+
+    async dropDB(dbName:string): Promise<boolean> {
+        try {
+            const databases = await this.getDbNames();
+            if(databases.includes(dbName)) {
+                console.log(`database "${dbName}" exists!`)
+                r.dbDrop(dbName).run(this._conn as r.Connection, (err) => {
+                    if(err) {
+                        console.log(err);
+                    } else {
+                        // console.log(result);
+                        console.log(`dropped DB "${dbName}"`);
+                    }
+                })
+            } else {
+                console.log(`database "${dbName}" does not exists!`)
+            }
+            return true;
+        } catch(err) {
+            console.log(`error dropping database "${dbName}"`)
+            console.log(err)
+            return false;
+        }
     }
 
     // eslint-disable-next-line functional/prefer-readonly-type
