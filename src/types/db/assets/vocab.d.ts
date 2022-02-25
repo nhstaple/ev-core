@@ -36,6 +36,7 @@ export type TPartOfSpeech = keyof typeof EPartOfSpeech;
  * 
  * @readonly lang {ELanguage} the parent language
  * @readonly arbit {ITractable} the universal word
+ * @readonly pos {EPartOfSpeech} part of speech of the word
  */
 export interface IVocab_lw extends ITractable {
     readonly lang:ELanguage;
@@ -48,6 +49,7 @@ export interface IVocab_lw extends ITractable {
  * 
  * @readonly lang {ELanguage} the parent language
  * @readonly arbit {ITractable} the universal word
+ * @readonly pos {EPartOfSpeech} part of speech of the word
  * 
  * @readonly value {string} the native language
  * @readonly translation {string} the English translation

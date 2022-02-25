@@ -108,6 +108,11 @@ export interface IDatabaseDevice {
         dbName:string
     ):Promise<boolean>;
 
+    createTable(
+        dbName:string,
+        tableName:string
+    ): Promise<boolean>;
+
     /**
      * @async
      * @method createUUID()
@@ -149,8 +154,7 @@ export interface IDatabaseDevice {
      */
     getVocab(
         table:string,
-        uuid:ITractable[] | ITractable,
-        callback: (err:Error, data:Record<string, unknown>) => boolean
+        uuid:ITractable[] | ITractable
     ):Promise<IVocab[]>;
 
     /**

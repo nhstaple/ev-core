@@ -100,50 +100,76 @@ export class Rethink implements IDatabaseDevice {
         return databases;
     }
 
+    async getTableNames(database:string): Promise<readonly string[]> {
+        const names = await r.db(database).tableList().run(
+            this._conn as r.Connection
+        ).then(function(results) {
+            console.log(results);
+            return results;
+        })
+
+        return names;
+    }
+
     async createDB(dbName:string):Promise<boolean> {
+        const DISPLAY = false;
         try {
             const databases = await this.getDbNames();
             if(!databases.includes(dbName)) {
-                r.dbCreate(dbName).run(this._conn as r.Connection, (err) => {
+                if(DISPLAY) console.log(`createDB()\ndatabase does not "${dbName}" exist!`)
+                r.dbCreate(dbName).run(this._conn as r.Connection, (err, res) => {
+                    if(DISPLAY) console.log(res)
                     if(err) { 
                         console.log(err);
                     } else { 
                         // console.log(result);
-                        console.log(`created DB "${dbName}"`);
+                        if(DISPLAY) console.log(`created DB "${dbName}"`);
                     }
                 })
             } else {
-                console.log(`database "${dbName}" exists!`);
+                if(DISPLAY) console.log(`database "${dbName}" exists!`);
                 return false;
             }
             return true;
         }
         catch (err) {
-            console.log('There was an error on db initialization')
+            if(DISPLAY) console.log('There was an error on db initialization')
             console.log(err)
             return false;
         }
     }
 
+    // TODO
+    async createTable(dbName:string, tableName:string): Promise<boolean> {
+        await r.db(dbName).tableCreate(tableName).run(this._conn as r.Connection, (err, res) => {
+            if(err) console.log(err);
+            console.log(res);
+        });
+        return true
+    }
+
     async dropDB(dbName:string): Promise<boolean> {
+        const DISPLAY = false;
         try {
             const databases = await this.getDbNames();
             if(databases.includes(dbName)) {
-                console.log(`database "${dbName}" exists!`)
-                r.dbDrop(dbName).run(this._conn as r.Connection, (err) => {
+                if(DISPLAY) console.log(`dropDB()\ndatabase "${dbName}" exists!`)
+                r.dbDrop(dbName).run(this._conn as r.Connection, (err, res) => {
+                    if(DISPLAY) console.log(res)
                     if(err) {
                         console.log(err);
                     } else {
                         // console.log(result);
-                        console.log(`dropped DB "${dbName}"`);
+                        if(DISPLAY) console.log(`dropped DB "${dbName}"`);
                     }
                 })
             } else {
-                console.log(`database "${dbName}" does not exists!`)
+                if(DISPLAY) console.log(`database "${dbName}" does not exists!`)
+                return false;
             }
             return true;
         } catch(err) {
-            console.log(`error dropping database "${dbName}"`)
+            if(DISPLAY) console.log(`error dropping database "${dbName}"`)
             console.log(err)
             return false;
         }
@@ -247,12 +273,12 @@ export class Rethink implements IDatabaseDevice {
     }
 
     // eslint-disable-next-line functional/prefer-readonly-type
-    async getVocab(table:string, uuid:ITractable[]|ITractable, callback: (err:Error, data:Record<string, unknown>) => boolean):Promise<IVocab[]> {
+    async getVocab(table:string, uuid:ITractable[]|ITractable):Promise<IVocab[]> {
         // eslint-disable-next-line functional/no-throw-statement
         throw new Error('Not implemented!');
         return [];
 
-        console.log(table, uuid, callback);
+        console.log(table, uuid);
     }
 
     // eslint-disable-next-line functional/prefer-readonly-type
